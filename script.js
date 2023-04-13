@@ -5,7 +5,7 @@ document.querySelector('.convertBtn').addEventListener('click', () => {
   document.querySelector('.textResult').value = '';
   for (i = 0; dataCh[i]; i++) {
     let channel2 = dataCh[i];
-    fetching(channel2);
+    fetching(channel2.slice(25));
   }
 
   function fetching(channel2) {
@@ -24,7 +24,7 @@ document.querySelector('.convertBtn').addEventListener('click', () => {
       .catch(err => {
         console.log(err);
         let newUrl = `Not Found`;
-        document.querySelector('.textResult').value += newUrl;
+        // document.querySelector('.textResult').value += newUrl;
 
         document.querySelector('.linkTableBody').innerHTML += `<tr>
     <td><a href="${newUrl}" target='_blank'>${channel2}</a></td>
