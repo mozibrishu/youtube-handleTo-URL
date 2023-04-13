@@ -15,6 +15,25 @@
     .container {
       width: 80%;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .inputSide{
+      width: 50%;
+      margin-right: 5%;
+    }
+    .resultSide{
+      width: 50%;
+      margin-left: 5%;
+    }
+
+    .textInput {
+      width: 90%;
+      height: 300px;
+    }
+    .textResult {
+      width: 90%;
+      height: 300px;
     }
 
     th,
@@ -48,17 +67,22 @@
 <body>
   <h1> Youtube Handle to URL</h1>
   <div class="container">
-    <p>Input Handle: </p>
-    <textarea class="textInput" rows="20" cols="80"></textarea>
-    <br />
-    <button class="convertBtn">Convert</button>
+    <div class="inputSide">
+      <p>Input Handle: </p>
+      <textarea class="textInput"></textarea>
+      <br />
+      <br />
+      <button class="convertBtn">Convert</button>
+    </div>
     <br>
 
-    <p>Output Link: </p>
-    <textarea class="textResult"></textarea>
-    <br />
-    <br />
-    <button onclick="downloadFile()">Save As Text File</button>
+<div class="resultSide">
+  <p>Output Link: </p>
+  <textarea class="textResult"></textarea>
+  <br />
+  <br />
+  <button onclick="downloadFile()">Save As Text File</button>
+</div>
 
     <br>
   </div>
@@ -84,7 +108,7 @@
       URL.revokeObjectURL(link.href);
     };
   </script>
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
 </body>
 
 </html>
