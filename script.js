@@ -1,11 +1,26 @@
 document.querySelector('.convertBtn').addEventListener('click', () => {
   let inputText = document.querySelector('.textInput').value;
-  console.log(inputText)
+  // console.log(inputText)
   let dataCh = inputText.split(/\n/);
   document.querySelector('.textResult').value = '';
   for (i = 0; dataCh[i]; i++) {
     let channel2 = dataCh[i];
-    fetching(channel2.slice(25));
+    let splitted = channel2.split('/');
+    let checkerStr = splitted[3];
+    let firstChar = splitted[3].charAt(0)
+
+
+
+    if (checkerStr == 'channel') {
+      console.log(splitted[4]);
+      document.querySelector('.textResult').value += `https://www.youtube.com/channel/${splitted[4]}\n`;
+    } else if (checkerStr == 'c') {
+      fetching(splitted[4]);
+    } else if (checkerStr == 'user') {
+      fetching(splitted[4]);
+    } else if (firstChar == '@') {
+      fetching(splitted[3].slice(1));
+    }
   }
 
   function fetching(channel2) {
